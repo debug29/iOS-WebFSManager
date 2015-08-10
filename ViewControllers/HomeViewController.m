@@ -57,32 +57,12 @@
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     NSString *CellIdentifier = [NSString stringWithFormat:@""];
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
+    ItemTableViewCell *cell = (ItemTableViewCell*)[tableView dequeueReusableCellWithIdentifier:CellIdentifier];
     if (cell == nil) {
-        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier];
+        cell = [[ItemTableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier];
         cell.selectionStyle = UITableViewCellSelectionStyleNone;
         cell.contentView.backgroundColor = [UIColor whiteColor];
-        [cell.textLabel setText:[self.endpointArray objectAtIndex:indexPath.row]];
-
-        [WebFSManager getMeta:@"" file:[self.endpointArray objectAtIndex:indexPath.row] completionBlock:^(BOOL success, NSDictionary *result) {
-            NSLog(@"%@\n%@", success ? @"Yes" : @"No", result);
-            if ([[result objectForKey:@"mimetype"] isEqualToString:@"inode/directory"])
-                cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
-            else if ([[result objectForKey:@"mimetype"] isEqualToString:@"image/jpeg"]) {
-                AsyncImageView *imageBG = [[AsyncImageView alloc] initWithFrame:cell.contentView.bounds];
-                imageBG.imageURL = [NSURL URLWithString:[NSString stringWithFormat:@"%@%@", API_ENDPOINT, [self.endpointArray objectAtIndex:indexPath.row]]];
-                imageBG.contentMode = UIViewContentModeScaleAspectFill;
-                imageBG.clipsToBounds = YES;
-                imageBG.showActivityIndicator = NO;
-                [cell.contentView insertSubview:imageBG belowSubview:cell.textLabel];
-                cell.textLabel.textColor = [UIColor whiteColor];
-                cell.textLabel.layer.shadowOpacity = 1.0;
-                cell.textLabel.layer.shadowRadius = 3.0;
-                cell.textLabel.layer.shadowColor = [UIColor blackColor].CGColor;
-                cell.textLabel.layer.shadowOffset = CGSizeMake(0.0, 0.0);
-            }
-                
-        }];
+        [cell buildCellWithItem:[self.endpointArray objectAtIndex:indexPath.row] andPath:@""];
     }
     return cell;
 }

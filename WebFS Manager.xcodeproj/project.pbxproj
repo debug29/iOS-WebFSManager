@@ -14,6 +14,7 @@
 		70DC576D1B78AD6F00A914B7 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 70DC576C1B78AD6F00A914B7 /* AppDelegate.m */; };
 		70DC57751B78AD6F00A914B7 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 70DC57741B78AD6F00A914B7 /* Images.xcassets */; };
 		70DC57841B78AD6F00A914B7 /* WebFS_ManagerTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 70DC57831B78AD6F00A914B7 /* WebFS_ManagerTests.m */; };
+		70E7916E1B78C54B00BB4896 /* ItemTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 70E7916D1B78C54B00BB4896 /* ItemTableViewCell.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -43,6 +44,8 @@
 		70DC577D1B78AD6F00A914B7 /* WebFS ManagerTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "WebFS ManagerTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		70DC57821B78AD6F00A914B7 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		70DC57831B78AD6F00A914B7 /* WebFS_ManagerTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = WebFS_ManagerTests.m; sourceTree = "<group>"; };
+		70E7916C1B78C54B00BB4896 /* ItemTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ItemTableViewCell.h; sourceTree = "<group>"; };
+		70E7916D1B78C54B00BB4896 /* ItemTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ItemTableViewCell.m; sourceTree = "<group>"; };
 		80304310752D16F23120F20F /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -137,6 +140,8 @@
 		70DC578E1B78AF3F00A914B7 /* CustomClass */ = {
 			isa = PBXGroup;
 			children = (
+				70E7916C1B78C54B00BB4896 /* ItemTableViewCell.h */,
+				70E7916D1B78C54B00BB4896 /* ItemTableViewCell.m */,
 			);
 			path = CustomClass;
 			sourceTree = "<group>";
@@ -311,6 +316,7 @@
 			files = (
 				70DC576D1B78AD6F00A914B7 /* AppDelegate.m in Sources */,
 				70DC576A1B78AD6F00A914B7 /* main.m in Sources */,
+				70E7916E1B78C54B00BB4896 /* ItemTableViewCell.m in Sources */,
 				704953501B78B0C500815819 /* HomeViewController.m in Sources */,
 				704953541B78B2AE00815819 /* WebFSManager.m in Sources */,
 			);
