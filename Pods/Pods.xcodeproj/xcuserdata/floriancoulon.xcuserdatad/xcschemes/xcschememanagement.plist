@@ -9,6 +9,11 @@
 			<key>isShown</key>
 			<false/>
 		</dict>
+		<key>AsyncImageView.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
 		<key>Pods.xcscheme</key>
 		<dict>
 			<key>isShown</key>
@@ -17,12 +22,17 @@
 	</dict>
 	<key>SuppressBuildableAutocreation</key>
 	<dict>
-		<key>343FC7EB279C2D521B342537A4385296</key>
+		<key>03707424AEFDF964D0404BA4C0C43ABF</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>E0A0843C35E4406010926441E5E9C150</key>
+		<key>2F61DACE9A10E9613302176838171A71</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>E4BD5E468B079B352F903EF3B3E85943</key>
 		<dict>
 			<key>primary</key>
 			<true/>

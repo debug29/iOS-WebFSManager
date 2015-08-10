@@ -9,7 +9,10 @@
 #ifndef WebFS_Manager_WebFS_Manager_Prefix_pch
 #define WebFS_Manager_WebFS_Manager_Prefix_pch
 
+#define API_ENDPOINT @"http://ioschallenge.api.meetlima.com/"
+
 #import <AFNetWorking.h>
+#import <AsyncImageView.h>
 #import "WebFSManager.h"
 
 // Include any system framework and library headers here that should be included in all compilation units.

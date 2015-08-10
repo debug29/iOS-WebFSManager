@@ -12,4 +12,5 @@
 
 @property (nonatomic) NSMutableArray *endpointArray;
 @property (nonatomic) UITableView *homeTableView;
+@property (nonatomic) UIRefreshControl *refreshControl;
 @end

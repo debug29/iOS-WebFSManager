@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>IDESourceControlProjectFavoriteDictionaryKey</key>
+	<false/>
+	<key>IDESourceControlProjectIdentifier</key>
+	<string>0575B34F-5859-4DCF-8767-96EDD32EF6EC</string>
+	<key>IDESourceControlProjectName</key>
+	<string>WebFS Manager</string>
+	<key>IDESourceControlProjectOriginsDictionary</key>
+	<dict>
+		<key>CDA18FDD0781E797C36B6D8AAC5C872CFBC98C5D</key>
+		<string>https://github.com/debug29/iOS-WebFSManager.git</string>
+	</dict>
+	<key>IDESourceControlProjectPath</key>
+	<string>WebFS Manager.xcworkspace</string>
+	<key>IDESourceControlProjectRelativeInstallPathDictionary</key>
+	<dict>
+		<key>CDA18FDD0781E797C36B6D8AAC5C872CFBC98C5D</key>
+		<string>..</string>
+	</dict>
+	<key>IDESourceControlProjectURL</key>
+	<string>https://github.com/debug29/iOS-WebFSManager.git</string>
+	<key>IDESourceControlProjectVersion</key>
+	<integer>111</integer>
+	<key>IDESourceControlProjectWCCIdentifier</key>
+	<string>CDA18FDD0781E797C36B6D8AAC5C872CFBC98C5D</string>
+	<key>IDESourceControlProjectWCConfigurations</key>
+	<array>
+		<dict>
+			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
+			<string>public.vcs.git</string>
+			<key>IDESourceControlWCCIdentifierKey</key>
+			<string>CDA18FDD0781E797C36B6D8AAC5C872CFBC98C5D</string>
+			<key>IDESourceControlWCCName</key>
+			<string>iOS-WebFSManager</string>
+		</dict>
+	</array>
+</dict>
+</plist>
