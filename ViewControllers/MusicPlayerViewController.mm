@@ -19,19 +19,25 @@
     MeterTable meterTable;
 }
 
+- (void)viewWillDisappear:(BOOL)animated {
+    [self.audioPlayer stop];
+}
+
+- (void)viewDidAppear:(BOOL)animated {
+    [self configureAudioPlayer];
+}
+
 - (void)viewDidLoad {
     [super viewDidLoad];
+    [self configureAudioSession];
     self.title = @"Music Player";
     self.view.backgroundColor = [UIColor blackColor];
     
-    [self configureAudioSession];
-    [self configureAudioPlayer];
-
     self.visualizer = [[VisualizerView alloc] initWithFrame:CGRectMake(0, 0, self.view.frame.size.width, self.view.frame.size.height)];
     self.visualizer.alpha = 0.4;
     [self.visualizer.emitterLayer setValue:(id)[self getRandomColor].CGColor forKeyPath:@"emitterCells.cell.color"];
     [self.view addSubview:_visualizer];
-
+    
     
     // ToolBar
     self.toolBar = [[UIToolbar alloc] initWithFrame:CGRectMake(0, self.view.frame.size.height, self.view.frame.size.width, 44)];
@@ -63,7 +69,7 @@
     CADisplayLink *dpLink = [CADisplayLink displayLinkWithTarget:self selector:@selector(update)];
     [dpLink addToRunLoop:[NSRunLoop currentRunLoop] forMode:NSRunLoopCommonModes];
     
-
+    
     // Do any additional setup after loading the view.
 }
 
@@ -111,6 +117,7 @@
     [_audioPlayer setNumberOfLoops:-1];
     [_audioPlayer setMeteringEnabled:YES];
     _visualizer.audioPlayer = self.audioPlayer;
+    [self playPause];
 }
 
 - (void)configureAudioSession {
@@ -157,19 +164,19 @@
     //1
     float scale = 0.5;
 
-    //2
-    [_audioPlayer updateMeters];
-    
-    //3
-    float power = 0.0f;
-    for (int i = 0; i < [_audioPlayer numberOfChannels]; i++) {
-        power += [_audioPlayer averagePowerForChannel:i];
+    if (self.audioPlayer.isPlaying) {
+        //2
+        [_audioPlayer updateMeters];
+        //3
+        float power = 0.0f;
+        for (int i = 0; i < [_audioPlayer numberOfChannels]; i++) {
+            power += [_audioPlayer averagePowerForChannel:i];
+        }
+        power /= [_audioPlayer numberOfChannels];
+        //4
+        float level = self->meterTable.ValueAt(power);
+        scale = level * 5;
     }
-    power /= [_audioPlayer numberOfChannels];
-    
-    //4
-    float level = self->meterTable.ValueAt(power);
-    scale = level * 5;
     //5
     [self.visualizer.emitterLayer setValue:@(scale) forKeyPath:@"emitterCells.cell.emitterCells.childCell.scale"];
 }
@@ -185,13 +192,13 @@
 }
 
 /*
-#pragma mark - Navigation
-
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
-}
-*/
+ #pragma mark - Navigation
+ 
+ // In a storyboard-based application, you will often want to do a little preparation before navigation
+ - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
+ // Get the new view controller using [segue destinationViewController].
+ // Pass the selected object to the new view controller.
+ }
+ */
 
 @end
