@@ -10,12 +10,21 @@
 		425186E42093AEFE4ABD5010 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 01BABAE3A0E5597BEDA0F29E /* libPods.a */; };
 		704953501B78B0C500815819 /* HomeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7049534F1B78B0C500815819 /* HomeViewController.m */; };
 		704953541B78B2AE00815819 /* WebFSManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 704953531B78B2AE00815819 /* WebFSManager.m */; };
+		704977461B78EC4500B49E33 /* MeterTable.mm in Sources */ = {isa = PBXBuildFile; fileRef = 704977441B78EC4500B49E33 /* MeterTable.mm */; };
 		70DC576A1B78AD6F00A914B7 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 70DC57691B78AD6F00A914B7 /* main.m */; };
 		70DC576D1B78AD6F00A914B7 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 70DC576C1B78AD6F00A914B7 /* AppDelegate.m */; };
 		70DC57751B78AD6F00A914B7 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 70DC57741B78AD6F00A914B7 /* Images.xcassets */; };
 		70DC57841B78AD6F00A914B7 /* WebFS_ManagerTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 70DC57831B78AD6F00A914B7 /* WebFS_ManagerTests.m */; };
 		70E7916E1B78C54B00BB4896 /* ItemTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 70E7916D1B78C54B00BB4896 /* ItemTableViewCell.m */; };
 		70E791711B78C85400BB4896 /* ContentViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 70E791701B78C85400BB4896 /* ContentViewController.m */; };
+		70E791791B78E36600BB4896 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 70E791781B78E36600BB4896 /* QuartzCore.framework */; };
+		70E7917B1B78E37900BB4896 /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 70E7917A1B78E37900BB4896 /* AVFoundation.framework */; };
+		70E7917D1B78E38400BB4896 /* MediaPlayer.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 70E7917C1B78E38400BB4896 /* MediaPlayer.framework */; };
+		70E7917F1B78E38B00BB4896 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 70E7917E1B78E38B00BB4896 /* CoreGraphics.framework */; };
+		70E791821B78E59300BB4896 /* MusicPlayerViewController.mm in Sources */ = {isa = PBXBuildFile; fileRef = 70E791811B78E59300BB4896 /* MusicPlayerViewController.mm */; };
+		70E791851B78E5B700BB4896 /* VisualizerView.mm in Sources */ = {isa = PBXBuildFile; fileRef = 70E791841B78E5B700BB4896 /* VisualizerView.mm */; };
+		70E791871B78E5D000BB4896 /* halo.png in Resources */ = {isa = PBXBuildFile; fileRef = 70E791861B78E5D000BB4896 /* halo.png */; };
+		70E791891B78E89000BB4896 /* libc++.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 70E791881B78E89000BB4896 /* libc++.dylib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -36,6 +45,8 @@
 		704953511B78B18B00815819 /* WebFS-Manager-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "WebFS-Manager-Prefix.pch"; sourceTree = "<group>"; };
 		704953521B78B2AE00815819 /* WebFSManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WebFSManager.h; sourceTree = "<group>"; };
 		704953531B78B2AE00815819 /* WebFSManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WebFSManager.m; sourceTree = "<group>"; };
+		704977441B78EC4500B49E33 /* MeterTable.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = MeterTable.mm; sourceTree = "<group>"; };
+		704977451B78EC4500B49E33 /* MeterTable.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MeterTable.h; sourceTree = "<group>"; };
 		70DC57641B78AD6F00A914B7 /* WebFS Manager.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "WebFS Manager.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		70DC57681B78AD6F00A914B7 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		70DC57691B78AD6F00A914B7 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -49,6 +60,16 @@
 		70E7916D1B78C54B00BB4896 /* ItemTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ItemTableViewCell.m; sourceTree = "<group>"; };
 		70E7916F1B78C85400BB4896 /* ContentViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ContentViewController.h; sourceTree = "<group>"; };
 		70E791701B78C85400BB4896 /* ContentViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ContentViewController.m; sourceTree = "<group>"; };
+		70E791781B78E36600BB4896 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
+		70E7917A1B78E37900BB4896 /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
+		70E7917C1B78E38400BB4896 /* MediaPlayer.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MediaPlayer.framework; path = System/Library/Frameworks/MediaPlayer.framework; sourceTree = SDKROOT; };
+		70E7917E1B78E38B00BB4896 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
+		70E791801B78E59300BB4896 /* MusicPlayerViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MusicPlayerViewController.h; sourceTree = "<group>"; };
+		70E791811B78E59300BB4896 /* MusicPlayerViewController.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = MusicPlayerViewController.mm; sourceTree = "<group>"; };
+		70E791831B78E5B700BB4896 /* VisualizerView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VisualizerView.h; sourceTree = "<group>"; };
+		70E791841B78E5B700BB4896 /* VisualizerView.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = VisualizerView.mm; sourceTree = "<group>"; };
+		70E791861B78E5D000BB4896 /* halo.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = halo.png; sourceTree = "<group>"; };
+		70E791881B78E89000BB4896 /* libc++.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = "libc++.dylib"; path = "usr/lib/libc++.dylib"; sourceTree = SDKROOT; };
 		80304310752D16F23120F20F /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -57,6 +78,11 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				70E791891B78E89000BB4896 /* libc++.dylib in Frameworks */,
+				70E7917F1B78E38B00BB4896 /* CoreGraphics.framework in Frameworks */,
+				70E7917D1B78E38400BB4896 /* MediaPlayer.framework in Frameworks */,
+				70E7917B1B78E37900BB4896 /* AVFoundation.framework in Frameworks */,
+				70E791791B78E36600BB4896 /* QuartzCore.framework in Frameworks */,
 				425186E42093AEFE4ABD5010 /* libPods.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -136,6 +162,7 @@
 		70DC578D1B78AF3F00A914B7 /* Assets */ = {
 			isa = PBXGroup;
 			children = (
+				70E791861B78E5D000BB4896 /* halo.png */,
 			);
 			path = Assets;
 			sourceTree = "<group>";
@@ -143,6 +170,9 @@
 		70DC578E1B78AF3F00A914B7 /* CustomClass */ = {
 			isa = PBXGroup;
 			children = (
+				70E791831B78E5B700BB4896 /* VisualizerView.h */,
+				70E791841B78E5B700BB4896 /* VisualizerView.mm */,
+				70E791741B78E2B300BB4896 /* MeterTable */,
 				70E7916C1B78C54B00BB4896 /* ItemTableViewCell.h */,
 				70E7916D1B78C54B00BB4896 /* ItemTableViewCell.m */,
 			);
@@ -165,13 +195,29 @@
 				7049534F1B78B0C500815819 /* HomeViewController.m */,
 				70E7916F1B78C85400BB4896 /* ContentViewController.h */,
 				70E791701B78C85400BB4896 /* ContentViewController.m */,
+				70E791801B78E59300BB4896 /* MusicPlayerViewController.h */,
+				70E791811B78E59300BB4896 /* MusicPlayerViewController.mm */,
 			);
 			path = ViewControllers;
+			sourceTree = "<group>";
+		};
+		70E791741B78E2B300BB4896 /* MeterTable */ = {
+			isa = PBXGroup;
+			children = (
+				704977441B78EC4500B49E33 /* MeterTable.mm */,
+				704977451B78EC4500B49E33 /* MeterTable.h */,
+			);
+			path = MeterTable;
 			sourceTree = "<group>";
 		};
 		A85C84D1045BA6F025EC50AC /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				70E791881B78E89000BB4896 /* libc++.dylib */,
+				70E7917E1B78E38B00BB4896 /* CoreGraphics.framework */,
+				70E7917C1B78E38400BB4896 /* MediaPlayer.framework */,
+				70E7917A1B78E37900BB4896 /* AVFoundation.framework */,
+				70E791781B78E36600BB4896 /* QuartzCore.framework */,
 				01BABAE3A0E5597BEDA0F29E /* libPods.a */,
 			);
 			name = Frameworks;
@@ -269,6 +315,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				70DC57751B78AD6F00A914B7 /* Images.xcassets in Resources */,
+				70E791871B78E5D000BB4896 /* halo.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -322,6 +369,9 @@
 				70DC576D1B78AD6F00A914B7 /* AppDelegate.m in Sources */,
 				70DC576A1B78AD6F00A914B7 /* main.m in Sources */,
 				70E791711B78C85400BB4896 /* ContentViewController.m in Sources */,
+				70E791821B78E59300BB4896 /* MusicPlayerViewController.mm in Sources */,
+				70E791851B78E5B700BB4896 /* VisualizerView.mm in Sources */,
+				704977461B78EC4500B49E33 /* MeterTable.mm in Sources */,
 				70E7916E1B78C54B00BB4896 /* ItemTableViewCell.m in Sources */,
 				704953501B78B0C500815819 /* HomeViewController.m in Sources */,
 				704953541B78B2AE00815819 /* WebFSManager.m in Sources */,

@@ -30,17 +30,26 @@
 - (void) buildCellWithItem:(NSString *)item andPath:(NSString *) path {
     [WebFSManager getMeta:path file:item completionBlock:^(BOOL success, NSDictionary *result) {
         NSLog(@"%@\n%@", success ? @"Yes" : @"No", result);
-        if ([[result objectForKey:@"mimetype"] isEqualToString:@"inode/directory"])
+        if ([[result objectForKey:@"mimetype"] isEqualToString:@"inode/directory"]) {
             self.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
+            self.type = 0;
+        }
         else if ([[result objectForKey:@"mimetype"] isEqualToString:@"image/jpeg"]) {
             self.image.frame = self.contentView.bounds;
-            self.image.imageURL = [NSURL URLWithString:[NSString stringWithFormat:@"%@%@%@", API_ENDPOINT, path, item]];
+            if ([path isEqualToString:@""])
+                self.image.imageURL = [NSURL URLWithString:[NSString stringWithFormat:@"%@%@%@", API_ENDPOINT, path, item]];
+            else
+                self.image.imageURL = [NSURL URLWithString:[NSString stringWithFormat:@"%@%@/%@", API_ENDPOINT, path, item]];
             self.image.hidden = NO;
             self.textLabel.textColor = [UIColor whiteColor];
             self.textLabel.layer.shadowOpacity = 1.0;
             self.textLabel.layer.shadowRadius = 3.0;
             self.textLabel.layer.shadowColor = [UIColor blackColor].CGColor;
             self.textLabel.layer.shadowOffset = CGSizeMake(0.0, 0.0);
+            self.type = 1;
+        }
+        else if ([[result objectForKey:@"mimetype"] isEqualToString:@"audio/mpeg"]) {
+            self.type = 3;
         }
         self.textLabel.text = item;
     }];

@@ -43,7 +43,7 @@
 }
 
 - (void) refresh {
-    [WebFSManager getDirectory:@"" completionBlock:^(BOOL success, NSDictionary *result) {
+    [WebFSManager getDirectory:self.path completionBlock:^(BOOL success, NSDictionary *result) {
         NSLog(@"%@\n%@", success ? @"Yes" : @"No", result);
         self.contentArray = [[NSMutableArray alloc] initWithArray:(NSArray*)result];
         [self.contentTableView reloadData];
@@ -63,8 +63,9 @@
         cell = [[ItemTableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier];
         cell.selectionStyle = UITableViewCellSelectionStyleNone;
         cell.contentView.backgroundColor = [UIColor whiteColor];
+        [cell buildCellWithItem:[self.contentArray objectAtIndex:indexPath.row] andPath:self.path];
     }
-    [cell buildCellWithItem:[self.contentArray objectAtIndex:indexPath.row] andPath:self.path];
+
     return cell;
 }
 
@@ -76,6 +77,13 @@
         contentVC.path = [NSString stringWithFormat:@"%@/%@", self.path, contentVC.folderName];
         
         [self.navigationController pushViewController:contentVC animated:YES];
+    }
+    else {
+        if (cell.type == 3) {
+            MusicPlayerViewController *player = [[MusicPlayerViewController alloc] init];
+            player.fileURL = [NSString stringWithFormat:@"%@%@/%@", API_ENDPOINT ,self.path, [self.contentArray objectAtIndex:indexPath.row]];
+            [self.navigationController pushViewController:player animated:YES];
+        }
     }
 }
 

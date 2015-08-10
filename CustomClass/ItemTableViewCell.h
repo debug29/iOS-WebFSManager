@@ -11,6 +11,15 @@
 @interface ItemTableViewCell : UITableViewCell
 // Property
 @property (nonatomic) AsyncImageView *image;
+@property (nonatomic) int type;
+/*****
+ 
+ 0 : directory
+ 1 : image
+ 2 : movie / video
+ 3 : music
+ 
+ *****/
 
 // Methode
 - (void) buildCellWithItem:(NSString *)item andPath:(NSString *) path;

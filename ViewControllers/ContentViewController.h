@@ -8,6 +8,7 @@
 
 #import <UIKit/UIKit.h>
 #import "ItemTableViewCell.h"
+#import "MusicPlayerViewController.h"
 
 @interface ContentViewController : UIViewController <UITableViewDataSource, UITableViewDelegate>
 

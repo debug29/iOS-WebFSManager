@@ -12,6 +12,7 @@
 
 + (void) getDirectory:(NSString *)path completionBlock:(void (^)(BOOL success, NSDictionary *result)) _block {
     AFHTTPRequestOperationManager *manager = [AFHTTPRequestOperationManager manager];
+    [manager.requestSerializer setCachePolicy:NSURLRequestReloadIgnoringLocalCacheData];
     [manager GET:[NSString stringWithFormat:@"%@%@", API_ENDPOINT, path] parameters:nil success:^(AFHTTPRequestOperation *operation, id responseObject) {
         _block(YES, responseObject);
     } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
@@ -21,6 +22,7 @@
 
 + (void) getMeta:(NSString *)path file:(NSString*)file completionBlock:(void (^)(BOOL success, NSDictionary *result)) _block {
     AFHTTPRequestOperationManager *manager = [AFHTTPRequestOperationManager manager];
+    [manager.requestSerializer setCachePolicy:NSURLRequestReloadIgnoringLocalCacheData];
     if ([path isEqualToString:@""]) {
         NSString *urlString = [NSString stringWithFormat:@"%@%@%@?stat", API_ENDPOINT, path, file];
         urlString = [urlString stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding];
