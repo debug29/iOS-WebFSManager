@@ -20,6 +20,34 @@
     MeterTable meterTable;
 }
 
+- (void)viewWillAppear:(BOOL)animated {
+    [super viewWillAppear:YES];
+    AVAsset *asset;
+    
+    NSURL *URL = [NSURL URLWithString:[self.fileURL stringByAddingPercentEscapesUsingEncoding: NSUTF8StringEncoding]];
+    
+    asset = [AVURLAsset URLAssetWithURL:URL options:nil];
+
+    NSUInteger dTotalSeconds = CMTimeGetSeconds([asset duration]);
+    
+    NSUInteger dHours = floor(dTotalSeconds / 3600);
+    NSUInteger dMinutes = floor(dTotalSeconds % 3600 / 60);
+    NSUInteger dSeconds = floor(dTotalSeconds % 3600 % 60);
+    
+    NSString *videoDurationText = [NSString stringWithFormat:@"%i:%02i:%02i",dHours, dMinutes, dSeconds];
+    NSLog(@"%@", videoDurationText);
+    for (AVMetadataItem *metadataItem in asset.commonMetadata) {
+        
+        NSLog(@"%@ : %@", metadataItem.commonKey, metadataItem.stringValue);
+        
+        if ([metadataItem.commonKey isEqualToString:@"artwork"]){
+     
+        }
+    }
+    
+
+}
+
 - (void)viewWillDisappear:(BOOL)animated {
     [self.audioPlayer stop];
 }
