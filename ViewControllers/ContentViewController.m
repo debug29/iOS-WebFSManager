@@ -1,51 +1,52 @@
 //
-//  HomeViewController.m
+//  ContentViewController.m
 //  WebFS Manager
 //
 //  Created by Florian Coulon on 10/08/15.
 //  Copyright (c) 2015 Florian Coulon. All rights reserved.
 //
 
-#import "HomeViewController.h"
+#import "ContentViewController.h"
 
-@interface HomeViewController ()
+@interface ContentViewController ()
 
 @end
 
-@implementation HomeViewController
+@implementation ContentViewController
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    self.title = @"WebFS Manager";
-    self.endpointArray = [[NSMutableArray alloc] init];
+    self.title = self.folderName;
+    NSLog(@"%@", self.path);
+    self.contentArray = [[NSMutableArray alloc] init];
     
-    self.homeTableView = [[UITableView alloc] initWithFrame:self.view.bounds];
-    self.homeTableView.delegate = self;
-    self.homeTableView.dataSource = self;
-    [self.view addSubview:self.homeTableView];
+    self.contentTableView = [[UITableView alloc] initWithFrame:self.view.bounds];
+    self.contentTableView.delegate = self;
+    self.contentTableView.dataSource = self;
+    [self.view addSubview:self.contentTableView];
     
     self.refreshControl = [[UIRefreshControl alloc] init];
     self.refreshControl.backgroundColor = [UIColor clearColor];
     self.refreshControl.tintColor = [UIColor grayColor];
     [self.refreshControl addTarget:self action:@selector(refresh) forControlEvents:UIControlEventValueChanged];
-    [self.homeTableView addSubview:self.refreshControl];
+    [self.contentTableView addSubview:self.refreshControl];
     // Do any additional setup after loading the view.
 }
 
 - (void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:YES];
-    [WebFSManager getDirectory:@"" completionBlock:^(BOOL success, NSDictionary *result) {
+    [WebFSManager getDirectory:self.path completionBlock:^(BOOL success, NSDictionary *result) {
         NSLog(@"%@\n%@", success ? @"Yes" : @"No", result);
-        self.endpointArray = [[NSMutableArray alloc] initWithArray:(NSArray*)result];
-        [self.homeTableView reloadData];
+        self.contentArray = [[NSMutableArray alloc] initWithArray:(NSArray*)result];
+        [self.contentTableView reloadData];
     }];
 }
 
 - (void) refresh {
     [WebFSManager getDirectory:@"" completionBlock:^(BOOL success, NSDictionary *result) {
         NSLog(@"%@\n%@", success ? @"Yes" : @"No", result);
-        self.endpointArray = [[NSMutableArray alloc] initWithArray:(NSArray*)result];
-        [self.homeTableView reloadData];
+        self.contentArray = [[NSMutableArray alloc] initWithArray:(NSArray*)result];
+        [self.contentTableView reloadData];
         [self.refreshControl endRefreshing];
     }];
 }
@@ -63,8 +64,7 @@
         cell.selectionStyle = UITableViewCellSelectionStyleNone;
         cell.contentView.backgroundColor = [UIColor whiteColor];
     }
-    [cell buildCellWithItem:[self.endpointArray objectAtIndex:indexPath.row] andPath:@""];
-    
+    [cell buildCellWithItem:[self.contentArray objectAtIndex:indexPath.row] andPath:self.path];
     return cell;
 }
 
@@ -72,19 +72,20 @@
     ItemTableViewCell *cell = (ItemTableViewCell *)[tableView cellForRowAtIndexPath:indexPath];
     if (cell.accessoryType == UITableViewCellAccessoryDisclosureIndicator) {
         ContentViewController *contentVC = [[ContentViewController alloc] init];
-        contentVC.folderName = [self.endpointArray objectAtIndex:indexPath.row];
-        contentVC.path = contentVC.folderName;
+        contentVC.folderName = [self.contentArray objectAtIndex:indexPath.row];
+        contentVC.path = [NSString stringWithFormat:@"%@/%@", self.path, contentVC.folderName];
         
         [self.navigationController pushViewController:contentVC animated:YES];
     }
 }
+
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
     return 60.;
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    return self.endpointArray.count;
+    return self.contentArray.count;
 }
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {

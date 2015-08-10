@@ -21,11 +21,25 @@
 
 + (void) getMeta:(NSString *)path file:(NSString*)file completionBlock:(void (^)(BOOL success, NSDictionary *result)) _block {
     AFHTTPRequestOperationManager *manager = [AFHTTPRequestOperationManager manager];
-    [manager GET:[NSString stringWithFormat:@"%@%@%@?stat", API_ENDPOINT, path, file] parameters:nil success:^(AFHTTPRequestOperation *operation, id responseObject) {
-        _block(YES, responseObject);
-    } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
-        _block(NO, nil);
-    }];
+    if ([path isEqualToString:@""]) {
+        NSString *urlString = [NSString stringWithFormat:@"%@%@%@?stat", API_ENDPOINT, path, file];
+        urlString = [urlString stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding];
+        [manager GET:urlString parameters:nil success:^(AFHTTPRequestOperation *operation, id responseObject) {
+            _block(YES, responseObject);
+        } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+            _block(NO, nil);
+        }];
+    }
+    else {
+        NSString *urlString = [NSString stringWithFormat:@"%@%@/%@?stat", API_ENDPOINT, path, file];
+        urlString = [urlString stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding];
+        [manager GET:urlString parameters:nil success:^(AFHTTPRequestOperation *operation, id responseObject) {
+            _block(YES, responseObject);
+        } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+            _block(NO, nil);
+        }];
+        
+    }
 }
 
 

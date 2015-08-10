@@ -8,6 +8,7 @@
 
 #import <UIKit/UIKit.h>
 #import "ItemTableViewCell.h"
+#import "ContentViewController.h"
 @interface HomeViewController : UIViewController <UITableViewDataSource, UITableViewDelegate>
 
 @property (nonatomic) NSMutableArray *endpointArray;
