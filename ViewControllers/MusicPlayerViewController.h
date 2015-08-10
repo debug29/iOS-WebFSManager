@@ -8,6 +8,7 @@
 
 #import <UIKit/UIKit.h>
 #import <AVFoundation/AVFoundation.h>
+#import "STKAudioPlayer.h"
 #import "VisualizerView.h"
 
 @interface MusicPlayerViewController : UIViewController {
@@ -22,7 +23,7 @@
 @property (nonatomic) UIBarButtonItem *pauseBBI;
 @property (nonatomic) NSString *fileURL;
 // Add properties here
-@property (nonatomic) AVAudioPlayer *audioPlayer;
+@property (readwrite, retain) STKAudioPlayer* audioPlayer;
 @property (nonatomic) VisualizerView *visualizer;
 
 

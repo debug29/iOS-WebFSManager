@@ -8,6 +8,7 @@
 
 #import "MusicPlayerViewController.h"
 #import <AVFoundation/AVFoundation.h>
+#import <AudioToolbox/AudioToolbox.h>
 #import "VisualizerView.h"
 #import "MeterTable.h"
 
@@ -25,6 +26,7 @@
 
 - (void)viewDidAppear:(BOOL)animated {
     [self configureAudioPlayer];
+    [self toggleBars];
 }
 
 - (void)viewDidLoad {
@@ -40,7 +42,7 @@
     
     
     // ToolBar
-    self.toolBar = [[UIToolbar alloc] initWithFrame:CGRectMake(0, self.view.frame.size.height, self.view.frame.size.width, 44)];
+    self.toolBar = [[UIToolbar alloc] initWithFrame:CGRectMake(0, self.view.frame.size.height, self.view.frame.size.width, 94)];
     [_toolBar setBarStyle:UIBarStyleBlackTranslucent];
     [_toolBar setAutoresizingMask:UIViewAutoresizingFlexibleWidth];
     
@@ -57,7 +59,7 @@
     [_toolBar setItems:_playItems];
     
     [self.view addSubview:_toolBar];
-    
+
     _isBarHide = YES;
     _isPlaying = NO;
     
@@ -94,7 +96,7 @@
     }
     else {
         // Play audio here
-        [_audioPlayer play];
+        [self.audioPlayer resume];
         
         [_toolBar setItems:_pauseItems]; // toggle play/pause button
     }
@@ -107,14 +109,12 @@
     
     self.fileURL = [self.fileURL stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding];
     
-    NSData *data = [NSData dataWithContentsOfURL:[NSURL URLWithString:self.fileURL]];
-    
-    self.audioPlayer = [[AVAudioPlayer alloc] initWithData:data error:&error];
+    self.audioPlayer = [[STKAudioPlayer alloc] initWithOptions:(STKAudioPlayerOptions){ .flushQueueOnSeek = YES, .enableVolumeMixer = NO, .equalizerBandFrequencies = {50, 100, 200, 400, 800, 1600, 2600, 16000} }];
+    [self.audioPlayer playURL:[NSURL URLWithString:self.fileURL]];
     
     if (error) {
         NSLog(@"%@", [error localizedDescription]);
     }
-    [_audioPlayer setNumberOfLoops:-1];
     [_audioPlayer setMeteringEnabled:YES];
     _visualizer.audioPlayer = self.audioPlayer;
     [self playPause];
@@ -135,8 +135,6 @@
     }
     
     // Add audioPlayer configurations here
-    self.audioPlayer = [[AVAudioPlayer alloc] initWithContentsOfURL:url error:nil];
-    [_audioPlayer setNumberOfLoops:-1];
     [_audioPlayer setMeteringEnabled:YES];
     _visualizer.audioPlayer = self.audioPlayer;
     [self playPause];   // Play
@@ -144,10 +142,8 @@
 
 
 - (void)toggleBars {
-    CGFloat navBarDis = -44;
-    CGFloat toolBarDis = 44;
+    CGFloat toolBarDis = 94;
     if (_isBarHide ) {
-        navBarDis = -navBarDis;
         toolBarDis = -toolBarDis;
     }
     
@@ -164,15 +160,12 @@
     //1
     float scale = 0.5;
 
-    if (self.audioPlayer.isPlaying) {
+    if (self.audioPlayer.state == STKAudioPlayerStatePlaying) {
         //2
-        [_audioPlayer updateMeters];
+//        [_audioPlayer updateMeters];
         //3
         float power = 0.0f;
-        for (int i = 0; i < [_audioPlayer numberOfChannels]; i++) {
-            power += [_audioPlayer averagePowerForChannel:i];
-        }
-        power /= [_audioPlayer numberOfChannels];
+        power = [self.audioPlayer averagePowerInDecibelsForChannel:1];
         //4
         float level = self->meterTable.ValueAt(power);
         scale = level * 5;

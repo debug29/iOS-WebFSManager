@@ -9,11 +9,12 @@
 #import <UIKit/UIKit.h>
 #import <AVFoundation/AVFoundation.h>
 #import <FrameAccessor.h>
+#import "STKAudioPlayer.h"
 
 @interface VisualizerView : UIView
 
 @property (nonatomic) CAEmitterCell *cell;
 @property (nonatomic) CAEmitterLayer *emitterLayer;
-@property (nonatomic) AVAudioPlayer *audioPlayer;
+@property (nonatomic) STKAudioPlayer *audioPlayer;
 - (void)update: (float)volumeter;
 @end
