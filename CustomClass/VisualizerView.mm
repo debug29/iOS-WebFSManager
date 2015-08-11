@@ -29,7 +29,7 @@
         
         //2 Shapes the emitter as a rectangle that extends across most of the center of the screen. Particles are initially created within this area.
         CGFloat width = MAX(frame.size.width,frame.size.height);
-//        CGFloat height = MIN(frame.size.width, frame.size.height);
+        //        CGFloat height = MIN(frame.size.width, frame.size.height);
         self.emitterLayer.emitterPosition = CGPointMake(self.centerX, (self.centerY / 2.) + 200);
         self.emitterLayer.emitterSize = CGSizeMake(width-80, 60);
         self.emitterLayer.emitterShape = kCAEmitterLayerRectangle;
@@ -38,7 +38,7 @@
         //3 Creates a CAEmitterCell that renders particles using particleTexture.png, included in the starter project.
         self.cell = [CAEmitterCell emitterCell];
         self.cell.name = @"cell";
-
+        
         CAEmitterCell *childCell = [CAEmitterCell emitterCell];
         childCell.name = @"childCell";
         childCell.lifetime = 1.0 / 60.0f;
@@ -56,9 +56,9 @@
         self.cell.alphaRange = 0.55f;
         
         //5 Sets the speed at which the color components change over the lifetime of the particle.
-      /*  self.cell.redSpeed = 0.11;
+        self.cell.redSpeed = 0.11;
         self.cell.greenSpeed = 0.07f;
-        self.cell.blueSpeed = -0.25f;*/
+        self.cell.blueSpeed = -0.25f;
         self.cell.alphaSpeed = 0.15f;
         
         //6 Sets the scale and the amount by which the scale can vary for the generated particles.
@@ -78,7 +78,7 @@
         //9 Adds the emitter cell to the emitter layer.
         self.emitterLayer.emitterCells = [NSArray arrayWithObject:self.cell];
         
-             // you added above creates an instance of CADisplayLink set up to call update on the target self. That means it will call the update method you just defined during each screen refresh.
+        // you added above creates an instance of CADisplayLink set up to call update on the target self. That means it will call the update method you just defined during each screen refresh.
     }
     return self;
 }

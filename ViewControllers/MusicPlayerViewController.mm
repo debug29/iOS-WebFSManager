@@ -22,6 +22,9 @@
 
 - (void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:YES];
+    
+    // Test Meta
+    
     AVAsset *asset;
     
     NSURL *URL = [NSURL URLWithString:[self.fileURL stringByAddingPercentEscapesUsingEncoding: NSUTF8StringEncoding]];
@@ -34,7 +37,7 @@
     NSUInteger dMinutes = floor(dTotalSeconds % 3600 / 60);
     NSUInteger dSeconds = floor(dTotalSeconds % 3600 % 60);
     
-    NSString *videoDurationText = [NSString stringWithFormat:@"%i:%02i:%02i",dHours, dMinutes, dSeconds];
+    NSString *videoDurationText = [NSString stringWithFormat:@"%lu:%02lu:%02lu",(unsigned long)dHours, (unsigned long)dMinutes, (unsigned long)dSeconds];
     NSLog(@"%@", videoDurationText);
     for (AVMetadataItem *metadataItem in asset.commonMetadata) {
         
@@ -44,22 +47,30 @@
      
         }
     }
-    
+
+    // End test meta
 
 }
 
 - (void)viewWillDisappear:(BOOL)animated {
+    // Disable player at end of view
     [self.audioPlayer stop];
 }
 
 - (void)viewDidAppear:(BOOL)animated {
+    
+    // Wait view before start player (better transition)
+    
     [self configureAudioPlayer];
-    [self toggleBars];
 }
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    
+    // Configure session
+    
     [self configureAudioSession];
+    
     self.title = @"Music Player";
     self.view.backgroundColor = [UIColor blackColor];
     
@@ -70,7 +81,7 @@
     
     
     // ToolBar
-    self.toolBar = [[UIToolbar alloc] initWithFrame:CGRectMake(0, self.view.frame.size.height, self.view.frame.size.width, 94)];
+    self.toolBar = [[UIToolbar alloc] initWithFrame:CGRectMake(0, self.view.frame.size.height - 94., self.view.frame.size.width, 94)];
     [_toolBar setBarStyle:UIBarStyleBlackTranslucent];
     [_toolBar setAutoresizingMask:UIViewAutoresizingFlexibleWidth];
     
@@ -88,19 +99,31 @@
     
     [self.view addSubview:_toolBar];
 
-    _isBarHide = YES;
+    self.slider = [[UISlider alloc] initWithFrame:CGRectMake(20, self.view.height - 20, self.view.width - 40., 20)];
+    self.slider.continuous = YES;
+    [self.slider addTarget:self action:@selector(sliderChanged) forControlEvents:UIControlEventValueChanged];
+    [self.view addSubview:self.slider];
+    
     _isPlaying = NO;
     
-    UITapGestureRecognizer *tapGR = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(tapGestureHandler:)];
-    [self.view addGestureRecognizer:tapGR];
-    
-    NSTimer* myTimer = [NSTimer scheduledTimerWithTimeInterval: 6.0 target: self selector: @selector(callAfterSixtySecond:) userInfo: nil repeats: YES];
-    
+    // Color change in animation
+    [NSTimer scheduledTimerWithTimeInterval: 6.0 target: self selector: @selector(callAfterSixtySecond:) userInfo: nil repeats: YES];
+
+    // Animation run loop
     CADisplayLink *dpLink = [CADisplayLink displayLinkWithTarget:self selector:@selector(update)];
     [dpLink addToRunLoop:[NSRunLoop currentRunLoop] forMode:NSRunLoopCommonModes];
+}
+
+-(void) sliderChanged {
     
+    // pb with server, seekToTime not working with this server, work well with mine, based on an apache or an nginx
+    if (!self.audioPlayer) {
+        return;
+    }
     
-    // Do any additional setup after loading the view.
+    NSLog(@"Slider Changed: %f", self.slider.value);
+    
+    [self.audioPlayer seekToTime:self.slider.value];
 }
 
 -(void) callAfterSixtySecond:(NSTimer*) t {
@@ -119,13 +142,11 @@
     if (_isPlaying) {
         // Pause audio here
         [_audioPlayer pause];
-        
         [_toolBar setItems:_playItems];  // toggle play/pause button
     }
     else {
         // Play audio here
         [self.audioPlayer resume];
-        
         [_toolBar setItems:_pauseItems]; // toggle play/pause button
     }
     _isPlaying = !_isPlaying;
@@ -133,6 +154,7 @@
 
 - (void)configureAudioPlayer {
     NSError *error;
+    
     NSLog(@"%@", self.fileURL);
     
     self.fileURL = [self.fileURL stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding];
@@ -157,69 +179,26 @@
     }
 }
 
-- (void)playURL:(NSURL *)url {
-    if (_isPlaying) {
-        [self playPause]; // Pause the previous audio player
-    }
-    
-    // Add audioPlayer configurations here
-    [_audioPlayer setMeteringEnabled:YES];
-    _visualizer.audioPlayer = self.audioPlayer;
-    [self playPause];   // Play
-}
-
-
-- (void)toggleBars {
-    CGFloat toolBarDis = 94;
-    if (_isBarHide ) {
-        toolBarDis = -toolBarDis;
-    }
-    
-    [UIView animateWithDuration:0.3 animations:^{
-        CGPoint toolBarCenter = _toolBar.center;
-        toolBarCenter.y += toolBarDis;
-        [_toolBar setCenter:toolBarCenter];
-    }];
-    
-    _isBarHide = !_isBarHide;
-}
-
 - (void)update {
-    //1
+    if (self.audioPlayer.duration != 0) {
+        self.slider.minimumValue = 0;
+        self.slider.maximumValue = self.audioPlayer.duration;
+        self.slider.value = self.audioPlayer.progress;
+    }
+    
     float scale = 0.5;
 
     if (self.audioPlayer.state == STKAudioPlayerStatePlaying) {
-        //2
-//        [_audioPlayer updateMeters];
-        //3
         float power = 0.0f;
         power = [self.audioPlayer averagePowerInDecibelsForChannel:1];
-        //4
         float level = self->meterTable.ValueAt(power);
         scale = level * 5;
     }
-    //5
     [self.visualizer.emitterLayer setValue:@(scale) forKeyPath:@"emitterCells.cell.emitterCells.childCell.scale"];
-}
-
-
-- (void)tapGestureHandler:(UITapGestureRecognizer *)tapGR {
-    [self toggleBars];
 }
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
 }
-
-/*
- #pragma mark - Navigation
- 
- // In a storyboard-based application, you will often want to do a little preparation before navigation
- - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
- // Get the new view controller using [segue destinationViewController].
- // Pass the selected object to the new view controller.
- }
- */
 
 @end

@@ -51,6 +51,9 @@
         else if ([[result objectForKey:@"mimetype"] isEqualToString:@"audio/mpeg"]) {
             self.type = 3;
         }
+        else if ([[result objectForKey:@"mimetype"] isEqualToString:@"video/mp4"] || [[result objectForKey:@"mimetype"] isEqualToString:@"video/x-msvideo"]) {
+            self.type = 2;
+        }
         self.textLabel.text = item;
     }];
 }

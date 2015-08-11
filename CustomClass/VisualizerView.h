@@ -16,5 +16,5 @@
 @property (nonatomic) CAEmitterCell *cell;
 @property (nonatomic) CAEmitterLayer *emitterLayer;
 @property (nonatomic) STKAudioPlayer *audioPlayer;
-- (void)update: (float)volumeter;
+
 @end

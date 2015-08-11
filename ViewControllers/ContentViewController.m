@@ -30,7 +30,6 @@
     self.refreshControl.tintColor = [UIColor grayColor];
     [self.refreshControl addTarget:self action:@selector(refresh) forControlEvents:UIControlEventValueChanged];
     [self.contentTableView addSubview:self.refreshControl];
-    // Do any additional setup after loading the view.
 }
 
 - (void)viewWillAppear:(BOOL)animated {
@@ -49,11 +48,6 @@
         [self.contentTableView reloadData];
         [self.refreshControl endRefreshing];
     }];
-}
-
-- (void)didReceiveMemoryWarning {
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
@@ -84,6 +78,9 @@
             player.fileURL = [NSString stringWithFormat:@"%@%@/%@", API_ENDPOINT ,self.path, [self.contentArray objectAtIndex:indexPath.row]];
             [self.navigationController pushViewController:player animated:YES];
         }
+        if (cell.type == 2) {
+            
+        }
     }
 }
 
@@ -98,6 +95,10 @@
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
     return 1;
+}
+
+- (void)didReceiveMemoryWarning {
+    [super didReceiveMemoryWarning];
 }
 
 @end

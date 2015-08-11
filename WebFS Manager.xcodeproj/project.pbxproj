@@ -20,6 +20,16 @@
 		704977621B79029200B49E33 /* STKHTTPDataSource.m in Sources */ = {isa = PBXBuildFile; fileRef = 704977561B79029200B49E33 /* STKHTTPDataSource.m */; };
 		704977631B79029200B49E33 /* STKLocalFileDataSource.m in Sources */ = {isa = PBXBuildFile; fileRef = 704977581B79029200B49E33 /* STKLocalFileDataSource.m */; };
 		704977641B79029200B49E33 /* STKQueueEntry.m in Sources */ = {isa = PBXBuildFile; fileRef = 7049775A1B79029200B49E33 /* STKQueueEntry.m */; };
+		704C11E51B7A39B700445478 /* KeepLayoutConstraint.m in Sources */ = {isa = PBXBuildFile; fileRef = 704C11E01B7A39B700445478 /* KeepLayoutConstraint.m */; };
+		704C11E61B7A39B700445478 /* NSArray+KeepLayout.m in Sources */ = {isa = PBXBuildFile; fileRef = 704C11E21B7A39B700445478 /* NSArray+KeepLayout.m */; };
+		704C11E71B7A39B700445478 /* UIView+KeepLayout.m in Sources */ = {isa = PBXBuildFile; fileRef = 704C11E41B7A39B700445478 /* UIView+KeepLayout.m */; };
+		704C11EA1B7A3A7B00445478 /* VideoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 704C11E91B7A3A7B00445478 /* VideoViewController.m */; };
+		70C2D2611B7A3C6A001FE3BD /* FCVideoPlayerView.m in Sources */ = {isa = PBXBuildFile; fileRef = 70C2D2601B7A3C6A001FE3BD /* FCVideoPlayerView.m */; };
+		70C2D2671B7A3CA5001FE3BD /* KeepTypes.m in Sources */ = {isa = PBXBuildFile; fileRef = 70C2D2651B7A3CA5001FE3BD /* KeepTypes.m */; };
+		70C2D26A1B7A3CC9001FE3BD /* KeepAttribute.m in Sources */ = {isa = PBXBuildFile; fileRef = 70C2D2691B7A3CC9001FE3BD /* KeepAttribute.m */; };
+		70C2D26C1B7A3F2C001FE3BD /* avplayer.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 70C2D26B1B7A3F2C001FE3BD /* avplayer.bundle */; };
+		70C2D26F1B7A3F5B001FE3BD /* closeButNormal@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 70C2D26D1B7A3F5B001FE3BD /* closeButNormal@2x.png */; };
+		70C2D2701B7A3F5B001FE3BD /* closeButPress@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 70C2D26E1B7A3F5B001FE3BD /* closeButPress@2x.png */; };
 		70DC576A1B78AD6F00A914B7 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 70DC57691B78AD6F00A914B7 /* main.m */; };
 		70DC576D1B78AD6F00A914B7 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 70DC576C1B78AD6F00A914B7 /* AppDelegate.m */; };
 		70DC57751B78AD6F00A914B7 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 70DC57741B78AD6F00A914B7 /* Images.xcassets */; };
@@ -74,6 +84,24 @@
 		704977581B79029200B49E33 /* STKLocalFileDataSource.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = STKLocalFileDataSource.m; sourceTree = "<group>"; };
 		704977591B79029200B49E33 /* STKQueueEntry.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = STKQueueEntry.h; sourceTree = "<group>"; };
 		7049775A1B79029200B49E33 /* STKQueueEntry.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = STKQueueEntry.m; sourceTree = "<group>"; };
+		704C11DE1B7A39B700445478 /* KeepLayout.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KeepLayout.h; sourceTree = "<group>"; };
+		704C11DF1B7A39B700445478 /* KeepLayoutConstraint.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KeepLayoutConstraint.h; sourceTree = "<group>"; };
+		704C11E01B7A39B700445478 /* KeepLayoutConstraint.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KeepLayoutConstraint.m; sourceTree = "<group>"; };
+		704C11E11B7A39B700445478 /* NSArray+KeepLayout.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSArray+KeepLayout.h"; sourceTree = "<group>"; };
+		704C11E21B7A39B700445478 /* NSArray+KeepLayout.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSArray+KeepLayout.m"; sourceTree = "<group>"; };
+		704C11E31B7A39B700445478 /* UIView+KeepLayout.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+KeepLayout.h"; sourceTree = "<group>"; };
+		704C11E41B7A39B700445478 /* UIView+KeepLayout.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+KeepLayout.m"; sourceTree = "<group>"; };
+		704C11E81B7A3A7B00445478 /* VideoViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VideoViewController.h; sourceTree = "<group>"; };
+		704C11E91B7A3A7B00445478 /* VideoViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VideoViewController.m; sourceTree = "<group>"; };
+		70C2D25F1B7A3C6A001FE3BD /* FCVideoPlayerView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FCVideoPlayerView.h; sourceTree = "<group>"; };
+		70C2D2601B7A3C6A001FE3BD /* FCVideoPlayerView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FCVideoPlayerView.m; sourceTree = "<group>"; };
+		70C2D2641B7A3CA5001FE3BD /* KeepTypes.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KeepTypes.h; sourceTree = "<group>"; };
+		70C2D2651B7A3CA5001FE3BD /* KeepTypes.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KeepTypes.m; sourceTree = "<group>"; };
+		70C2D2681B7A3CC9001FE3BD /* KeepAttribute.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KeepAttribute.h; sourceTree = "<group>"; };
+		70C2D2691B7A3CC9001FE3BD /* KeepAttribute.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KeepAttribute.m; sourceTree = "<group>"; };
+		70C2D26B1B7A3F2C001FE3BD /* avplayer.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = avplayer.bundle; sourceTree = "<group>"; };
+		70C2D26D1B7A3F5B001FE3BD /* closeButNormal@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "closeButNormal@2x.png"; sourceTree = "<group>"; };
+		70C2D26E1B7A3F5B001FE3BD /* closeButPress@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "closeButPress@2x.png"; sourceTree = "<group>"; };
 		70DC57641B78AD6F00A914B7 /* WebFS Manager.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "WebFS Manager.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		70DC57681B78AD6F00A914B7 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		70DC57691B78AD6F00A914B7 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -214,6 +242,9 @@
 		70DC578D1B78AF3F00A914B7 /* Assets */ = {
 			isa = PBXGroup;
 			children = (
+				70C2D26D1B7A3F5B001FE3BD /* closeButNormal@2x.png */,
+				70C2D26E1B7A3F5B001FE3BD /* closeButPress@2x.png */,
+				70C2D26B1B7A3F2C001FE3BD /* avplayer.bundle */,
 				70E791861B78E5D000BB4896 /* halo.png */,
 			);
 			path = Assets;
@@ -222,6 +253,19 @@
 		70DC578E1B78AF3F00A914B7 /* CustomClass */ = {
 			isa = PBXGroup;
 			children = (
+				70C2D25F1B7A3C6A001FE3BD /* FCVideoPlayerView.h */,
+				70C2D2601B7A3C6A001FE3BD /* FCVideoPlayerView.m */,
+				70C2D2641B7A3CA5001FE3BD /* KeepTypes.h */,
+				70C2D2651B7A3CA5001FE3BD /* KeepTypes.m */,
+				70C2D2681B7A3CC9001FE3BD /* KeepAttribute.h */,
+				70C2D2691B7A3CC9001FE3BD /* KeepAttribute.m */,
+				704C11DE1B7A39B700445478 /* KeepLayout.h */,
+				704C11DF1B7A39B700445478 /* KeepLayoutConstraint.h */,
+				704C11E01B7A39B700445478 /* KeepLayoutConstraint.m */,
+				704C11E11B7A39B700445478 /* NSArray+KeepLayout.h */,
+				704C11E21B7A39B700445478 /* NSArray+KeepLayout.m */,
+				704C11E31B7A39B700445478 /* UIView+KeepLayout.h */,
+				704C11E41B7A39B700445478 /* UIView+KeepLayout.m */,
 				704977481B79029200B49E33 /* StreamingKit */,
 				70E791831B78E5B700BB4896 /* VisualizerView.h */,
 				70E791841B78E5B700BB4896 /* VisualizerView.mm */,
@@ -244,6 +288,8 @@
 		70DC57901B78AF3F00A914B7 /* ViewControllers */ = {
 			isa = PBXGroup;
 			children = (
+				704C11E81B7A3A7B00445478 /* VideoViewController.h */,
+				704C11E91B7A3A7B00445478 /* VideoViewController.m */,
 				7049534E1B78B0C500815819 /* HomeViewController.h */,
 				7049534F1B78B0C500815819 /* HomeViewController.m */,
 				70E7916F1B78C85400BB4896 /* ContentViewController.h */,
@@ -367,8 +413,11 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				70C2D26F1B7A3F5B001FE3BD /* closeButNormal@2x.png in Resources */,
+				70C2D26C1B7A3F2C001FE3BD /* avplayer.bundle in Resources */,
 				70DC57751B78AD6F00A914B7 /* Images.xcassets in Resources */,
 				70E791871B78E5D000BB4896 /* halo.png in Resources */,
+				70C2D2701B7A3F5B001FE3BD /* closeButPress@2x.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -419,11 +468,14 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				70C2D26A1B7A3CC9001FE3BD /* KeepAttribute.m in Sources */,
 				704977611B79029200B49E33 /* STKDataSourceWrapper.m in Sources */,
 				70DC576D1B78AD6F00A914B7 /* AppDelegate.m in Sources */,
 				704977601B79029200B49E33 /* STKDataSource.m in Sources */,
 				70DC576A1B78AD6F00A914B7 /* main.m in Sources */,
 				70E791711B78C85400BB4896 /* ContentViewController.m in Sources */,
+				704C11E71B7A39B700445478 /* UIView+KeepLayout.m in Sources */,
+				704C11E51B7A39B700445478 /* KeepLayoutConstraint.m in Sources */,
 				70E791821B78E59300BB4896 /* MusicPlayerViewController.mm in Sources */,
 				7049775C1B79029200B49E33 /* NSMutableArray+STKAudioPlayer.m in Sources */,
 				70E791851B78E5B700BB4896 /* VisualizerView.mm in Sources */,
@@ -433,9 +485,13 @@
 				704977461B78EC4500B49E33 /* MeterTable.mm in Sources */,
 				704977621B79029200B49E33 /* STKHTTPDataSource.m in Sources */,
 				70E7916E1B78C54B00BB4896 /* ItemTableViewCell.m in Sources */,
+				704C11EA1B7A3A7B00445478 /* VideoViewController.m in Sources */,
+				70C2D2671B7A3CA5001FE3BD /* KeepTypes.m in Sources */,
 				7049775D1B79029200B49E33 /* STKAudioPlayer.m in Sources */,
+				70C2D2611B7A3C6A001FE3BD /* FCVideoPlayerView.m in Sources */,
 				704953501B78B0C500815819 /* HomeViewController.m in Sources */,
 				704953541B78B2AE00815819 /* WebFSManager.m in Sources */,
+				704C11E61B7A39B700445478 /* NSArray+KeepLayout.m in Sources */,
 				704977641B79029200B49E33 /* STKQueueEntry.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

@@ -77,6 +77,18 @@
         
         [self.navigationController pushViewController:contentVC animated:YES];
     }
+    else {
+        if (cell.type == 3) {
+            MusicPlayerViewController *player = [[MusicPlayerViewController alloc] init];
+            player.fileURL = [NSString stringWithFormat:@"%@%@%@", API_ENDPOINT ,@"", [self.endpointArray objectAtIndex:indexPath.row]];
+            [self.navigationController pushViewController:player animated:YES];
+        }
+        if (cell.type == 2) {
+            VideoViewController *VideoVC = [[VideoViewController alloc] init];
+            VideoVC.videoURL = [NSString stringWithFormat:@"%@%@%@", API_ENDPOINT ,@"", [self.endpointArray objectAtIndex:indexPath.row]];
+            [self.navigationController presentViewController:VideoVC animated:YES completion:nil];
+        }
+    }
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {

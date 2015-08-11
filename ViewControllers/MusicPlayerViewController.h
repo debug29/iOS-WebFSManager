@@ -12,7 +12,6 @@
 #import "VisualizerView.h"
 
 @interface MusicPlayerViewController : UIViewController {
-    BOOL _isBarHide;
     BOOL _isPlaying;
 }
 
@@ -22,7 +21,8 @@
 @property (nonatomic) UIBarButtonItem *playBBI;
 @property (nonatomic) UIBarButtonItem *pauseBBI;
 @property (nonatomic) NSString *fileURL;
-// Add properties here
+@property (nonatomic) UISlider *slider;
+
 @property (readwrite, retain) STKAudioPlayer* audioPlayer;
 @property (nonatomic) VisualizerView *visualizer;
 
