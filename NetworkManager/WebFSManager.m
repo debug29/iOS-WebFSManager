@@ -13,7 +13,11 @@
 + (void) getDirectory:(NSString *)path completionBlock:(void (^)(BOOL success, NSDictionary *result)) _block {
     AFHTTPRequestOperationManager *manager = [AFHTTPRequestOperationManager manager];
     [manager.requestSerializer setCachePolicy:NSURLRequestReloadIgnoringLocalCacheData];
-    [manager GET:[NSString stringWithFormat:@"%@%@", API_ENDPOINT, path] parameters:nil success:^(AFHTTPRequestOperation *operation, id responseObject) {
+    
+    NSString *urlString = [NSString stringWithFormat:@"%@%@", API_ENDPOINT, path];
+    urlString = [urlString stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding];
+    
+    [manager GET:urlString parameters:nil success:^(AFHTTPRequestOperation *operation, id responseObject) {
         _block(YES, responseObject);
     } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
         _block(NO, nil);
