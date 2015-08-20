@@ -22,15 +22,18 @@ PODS:
     - AFNetworking/NSURLSession
   - AsyncImageView (1.5.1)
   - FrameAccessor (2.0)
+  - NYTPhotoViewer (0.1.2)
 
 DEPENDENCIES:
   - AFNetworking
   - AsyncImageView
   - FrameAccessor
+  - NYTPhotoViewer
 
 SPEC CHECKSUMS:
   AFNetworking: 05edc0ac4c4c8cf57bcf4b84be5b0744b6d8e71e
   AsyncImageView: db9433939160710b34a5c249479e03af2a2121b0
   FrameAccessor: 443a13e58e23a10ff22180da0897b28c3f6abf66
+  NYTPhotoViewer: 874a57dd833238b52ab2e8d1c827356c763626c3
 
 COCOAPODS: 0.38.2

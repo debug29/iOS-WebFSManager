@@ -10,10 +10,13 @@
 #import "ItemTableViewCell.h"
 #import "ContentViewController.h"
 #import "VideoViewController.h"
+#import <NYTPhotosViewController.h>
+#import "NYTExamplePhoto.h"
 
-@interface HomeViewController : UIViewController <UITableViewDataSource, UITableViewDelegate>
+@interface HomeViewController : UIViewController <UITableViewDataSource, UITableViewDelegate, UIAlertViewDelegate, NYTPhotosViewControllerDelegate>
 
 @property (nonatomic) NSMutableArray *endpointArray;
 @property (nonatomic) UITableView *homeTableView;
 @property (nonatomic) UIRefreshControl *refreshControl;
+
 @end

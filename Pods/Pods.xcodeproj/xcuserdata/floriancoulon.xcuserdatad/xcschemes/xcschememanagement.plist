@@ -19,6 +19,11 @@
 			<key>isShown</key>
 			<false/>
 		</dict>
+		<key>NYTPhotoViewer.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
 		<key>Pods.xcscheme</key>
 		<dict>
 			<key>isShown</key>
@@ -27,22 +32,27 @@
 	</dict>
 	<key>SuppressBuildableAutocreation</key>
 	<dict>
-		<key>03536CCF327A225E38CC46FF8781FE91</key>
+		<key>023A35EC428762E370B837C070DB3DF3</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>A61A069E16C9C7C1464C761A5E42E3C6</key>
+		<key>620913F716CC58E075F5FBE63199BBAB</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>D9F44E91B4B263CC2A0BA37B0BFE3528</key>
+		<key>9281FB47AC09B53F03D0C0FEF40C61CC</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>E78A2C4A1CA0A6A6190F2883B561A299</key>
+		<key>9779358FD1C2F33E2F5A9A389A98196F</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>D0DE74622C56B6A89699DAD34D416B65</key>
 		<dict>
 			<key>primary</key>
 			<true/>

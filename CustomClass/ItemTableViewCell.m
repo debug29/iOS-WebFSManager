@@ -48,7 +48,7 @@
             self.textLabel.layer.shadowOffset = CGSizeMake(0.0, 0.0);
             self.type = 1;
         }
-        else if ([[result objectForKey:@"mimetype"] isEqualToString:@"audio/mpeg"]) {
+        else if ([[result objectForKey:@"mimetype"] isEqualToString:@"audio/mpeg"] || [[result objectForKey:@"mimetype"] isEqualToString:@"audio/x-flac"]) {
             self.type = 3;
         }
         else if ([[result objectForKey:@"mimetype"] isEqualToString:@"video/mp4"] || [[result objectForKey:@"mimetype"] isEqualToString:@"video/x-msvideo"]) {

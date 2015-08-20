@@ -24,6 +24,20 @@
     }];
 }
 
++ (void) createDirectory:(NSString *)path withName:(NSString *)name  completionBlock:(void (^)(BOOL success, NSDictionary *result)) _block {
+    AFHTTPRequestOperationManager *manager = [AFHTTPRequestOperationManager manager];
+    [manager.requestSerializer setCachePolicy:NSURLRequestReloadIgnoringLocalCacheData];
+    
+    NSString *urlString = [NSString stringWithFormat:@"%@%@%@", API_ENDPOINT, path, name];
+    urlString = [urlString stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding];
+    
+    [manager PUT:urlString parameters:nil success:^(AFHTTPRequestOperation *operation, id responseObject) {
+        _block(YES, responseObject);
+    } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+        _block(NO, nil);
+    }];
+}
+
 + (void) getMeta:(NSString *)path file:(NSString*)file completionBlock:(void (^)(BOOL success, NSDictionary *result)) _block {
     AFHTTPRequestOperationManager *manager = [AFHTTPRequestOperationManager manager];
     [manager.requestSerializer setCachePolicy:NSURLRequestReloadIgnoringLocalCacheData];

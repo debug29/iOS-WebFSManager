@@ -24,6 +24,7 @@
 		704C11E61B7A39B700445478 /* NSArray+KeepLayout.m in Sources */ = {isa = PBXBuildFile; fileRef = 704C11E21B7A39B700445478 /* NSArray+KeepLayout.m */; };
 		704C11E71B7A39B700445478 /* UIView+KeepLayout.m in Sources */ = {isa = PBXBuildFile; fileRef = 704C11E41B7A39B700445478 /* UIView+KeepLayout.m */; };
 		704C11EA1B7A3A7B00445478 /* VideoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 704C11E91B7A3A7B00445478 /* VideoViewController.m */; };
+		704DF2561B85DC1700F0246E /* NYTExamplePhoto.m in Sources */ = {isa = PBXBuildFile; fileRef = 704DF2551B85DC1700F0246E /* NYTExamplePhoto.m */; };
 		70C2D2611B7A3C6A001FE3BD /* FCVideoPlayerView.m in Sources */ = {isa = PBXBuildFile; fileRef = 70C2D2601B7A3C6A001FE3BD /* FCVideoPlayerView.m */; };
 		70C2D2671B7A3CA5001FE3BD /* KeepTypes.m in Sources */ = {isa = PBXBuildFile; fileRef = 70C2D2651B7A3CA5001FE3BD /* KeepTypes.m */; };
 		70C2D26A1B7A3CC9001FE3BD /* KeepAttribute.m in Sources */ = {isa = PBXBuildFile; fileRef = 70C2D2691B7A3CC9001FE3BD /* KeepAttribute.m */; };
@@ -93,6 +94,8 @@
 		704C11E41B7A39B700445478 /* UIView+KeepLayout.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+KeepLayout.m"; sourceTree = "<group>"; };
 		704C11E81B7A3A7B00445478 /* VideoViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VideoViewController.h; sourceTree = "<group>"; };
 		704C11E91B7A3A7B00445478 /* VideoViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VideoViewController.m; sourceTree = "<group>"; };
+		704DF2541B85DC1700F0246E /* NYTExamplePhoto.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NYTExamplePhoto.h; sourceTree = "<group>"; };
+		704DF2551B85DC1700F0246E /* NYTExamplePhoto.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NYTExamplePhoto.m; sourceTree = "<group>"; };
 		70C2D25F1B7A3C6A001FE3BD /* FCVideoPlayerView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FCVideoPlayerView.h; sourceTree = "<group>"; };
 		70C2D2601B7A3C6A001FE3BD /* FCVideoPlayerView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FCVideoPlayerView.m; sourceTree = "<group>"; };
 		70C2D2641B7A3CA5001FE3BD /* KeepTypes.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KeepTypes.h; sourceTree = "<group>"; };
@@ -272,6 +275,8 @@
 				70E791741B78E2B300BB4896 /* MeterTable */,
 				70E7916C1B78C54B00BB4896 /* ItemTableViewCell.h */,
 				70E7916D1B78C54B00BB4896 /* ItemTableViewCell.m */,
+				704DF2541B85DC1700F0246E /* NYTExamplePhoto.h */,
+				704DF2551B85DC1700F0246E /* NYTExamplePhoto.m */,
 			);
 			path = CustomClass;
 			sourceTree = "<group>";
@@ -481,6 +486,7 @@
 				70E791851B78E5B700BB4896 /* VisualizerView.mm in Sources */,
 				704977631B79029200B49E33 /* STKLocalFileDataSource.m in Sources */,
 				7049775E1B79029200B49E33 /* STKAutoRecoveringHTTPDataSource.m in Sources */,
+				704DF2561B85DC1700F0246E /* NYTExamplePhoto.m in Sources */,
 				7049775F1B79029200B49E33 /* STKCoreFoundationDataSource.m in Sources */,
 				704977461B78EC4500B49E33 /* MeterTable.mm in Sources */,
 				704977621B79029200B49E33 /* STKHTTPDataSource.m in Sources */,

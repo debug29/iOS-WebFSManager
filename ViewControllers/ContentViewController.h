@@ -9,8 +9,11 @@
 #import <UIKit/UIKit.h>
 #import "ItemTableViewCell.h"
 #import "MusicPlayerViewController.h"
+#import "VideoViewController.h"
+#import <NYTPhotosViewController.h>
+#import "NYTExamplePhoto.h"
 
-@interface ContentViewController : UIViewController <UITableViewDataSource, UITableViewDelegate>
+@interface ContentViewController : UIViewController <UITableViewDataSource, UITableViewDelegate, NYTPhotosViewControllerDelegate>
 
 @property (nonatomic) NSMutableArray *contentArray;
 @property (nonatomic) UITableView *contentTableView;
